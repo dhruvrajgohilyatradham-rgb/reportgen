@@ -120,7 +120,7 @@ function fit(){const s=Math.min(1,$('box').clientWidth/794);$('page-scale').styl
  $('page-frame').style.width=794*s+'px';$('page-frame').style.height=1123*s+'px'}
 new ResizeObserver(fit).observe($('box'));
 async function logSheet(name,when,d){
- try{const body=new URLSearchParams({name:name,datetime:when,property:d.name.trim(),bookings:dg(d.book)||'0',bookingAmount:dg(d.amt)||'0',rejects:dg(d.rej)||'0',rejectAmount:dg(d.ramt)||'0',rating:d.rating||'0'});
+ try{const body=new URLSearchParams({name:name,datetime:when,propertyName:d.name.trim(),bookings:dg(d.book)||'0',bookingAmount:dg(d.amt)||'0',rejects:dg(d.rej)||'0',rejectAmount:dg(d.ramt)||'0',rating:d.rating||'0'});
   await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()});return true}catch(e){return false}}
 $('dl').onclick=async()=>{
  const creator=$('creator').value.trim(),msg=$('msg');
